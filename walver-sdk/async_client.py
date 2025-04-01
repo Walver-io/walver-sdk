@@ -10,7 +10,7 @@ class AsyncWalver:
     def __init__(
         self,
         api_key: str = None, 
-        base_url: str = "https://walver.io/api/",
+        base_url: str = "https://walver.io/",
         timeout: int = 10):
         """
         Initialize the AsyncClient
@@ -166,5 +166,10 @@ class AsyncWalver:
         
         # Remove None values
         data = {k: v for k, v in data.items() if v is not None}
-        
-        return await self._post("/new", data)
+        try:
+            return await self._post("/new", data)
+        except httpx.HTTPStatusError as e:
+            if e.response.status_code == 409:
+                raise ValueError("ID for the verification already exists. Choose another ID.")
+            else:
+                raise e
