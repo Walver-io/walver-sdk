@@ -23,14 +23,14 @@ requirements = [
 
 setup(
     name="walver-sdk",
-    version="0.0.3",
+    version="0.0.4",
     author="BonifacioCalindoro",
     author_email="admin@walver.io",
     description="A comprehensive Python wrapper for the Walver API",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/walver-io/walver-python-sdk",
-    packages=find_packages(include=["walver", "walver.*"]),
+    packages=find_packages(include=["walver_sdk", "walver_sdk.*"]),
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
