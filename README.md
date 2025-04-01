@@ -17,7 +17,7 @@ Go to walver.io, register for an account and get an api key in the creator dashb
 ### Using the Synchronous Client
 
 ```python
-from walver_sdk import Walver
+from walver import Walver
 
 # Initialize the client
 walver = Walver(api_key="your-api-key")
@@ -74,7 +74,7 @@ walver.delete_api_key(api_key="key_123")
 
 ```python
 import asyncio
-from walver_sdk import AsyncWalver
+from walver import AsyncWalver
 
 async def main():
     # Initialize the client
