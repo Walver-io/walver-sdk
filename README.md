@@ -1,4 +1,4 @@
-# Walver SDK
+# Walver.io SDK
 
 A Python SDK for interacting with the Walver API, providing both synchronous and asynchronous clients for creating and managing wallet verification links.
 
