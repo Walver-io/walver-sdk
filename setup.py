@@ -23,7 +23,7 @@ requirements = [
 
 setup(
     name="walver-sdk",
-    version="0.0.4",
+    version="0.0.5",
     author="BonifacioCalindoro",
     author_email="admin@walver.io",
     description="A comprehensive Python wrapper for the Walver API",
@@ -31,6 +31,9 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/walver-io/walver-python-sdk",
     packages=find_packages(include=["walver_sdk", "walver_sdk.*"]),
+    package_data={
+        "walver_sdk": ["py.typed"],
+    },
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
@@ -45,6 +48,7 @@ setup(
         "Programming Language :: Python :: 3.13",
         "Operating System :: OS Independent",
         "Topic :: Software Development :: Libraries :: Python Modules",
+        "Typing :: Typed",
     ],
     python_requires=">=3.7",
     install_requires=requirements,
