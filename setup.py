@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Setup script for the Holded API wrapper.
+Setup script for the Python Walver sdk.
 """
 from setuptools import setup, find_packages
 
@@ -23,7 +23,7 @@ requirements = [
 
 setup(
     name="walver-sdk",
-    version="0.0.5",
+    version="0.0.6",
     author="BonifacioCalindoro",
     author_email="admin@walver.io",
     description="A comprehensive Python wrapper for the Walver API",
