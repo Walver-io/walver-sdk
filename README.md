@@ -88,6 +88,7 @@ async def main():
         token_gate=True,
         token_address="So11111111111111111111111111111111111111112",
         token_amount=1.0,
+        force_email_verification=True,
         custom_fields=[
             {
                 "id": "email",
@@ -179,6 +180,8 @@ verification = walver.create_verification(
     secret="your-webhook-secret",
     redirect_url="https://your-redirect-url.com",
     one_time=True,
+    force_telegram_verification=True,
+    force_email_verification=True,
     custom_fields=[
         {
             "id": "email",
@@ -190,7 +193,7 @@ verification = walver.create_verification(
             "id": "tg",
             "type": "telegram",
             "name": "Telegram Username",
-            "required": False
+            "required": True
         }
     ]
 )

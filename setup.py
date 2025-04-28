@@ -23,7 +23,7 @@ requirements = [
 
 setup(
     name="walver-sdk",
-    version="0.0.6",
+    version="0.0.7",
     author="BonifacioCalindoro",
     author_email="admin@walver.io",
     description="A comprehensive Python wrapper for the Walver API",

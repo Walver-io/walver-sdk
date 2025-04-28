@@ -126,7 +126,8 @@ class AsyncWalver:
         token_amount: Optional[Union[int, float]] = None,
         is_nft: bool = False,
         force_email_verification: bool = False,
-        force_telegram_verification: bool = False
+        force_telegram_verification: bool = False,
+        force_twitter_verification: bool = False,
     ) -> Dict[str, Any]:
         """Create a new verification link that can be shared with users."""
         if isinstance(expiration, datetime):
@@ -149,7 +150,8 @@ class AsyncWalver:
             "token_amount": token_amount,
             "is_nft": is_nft,
             "force_email_verification": force_email_verification,
-            "force_telegram_verification": force_telegram_verification
+            "force_telegram_verification": force_telegram_verification,
+            "force_twitter_verification": force_twitter_verification
         }
 
         if webhook:
@@ -170,7 +172,13 @@ class AsyncWalver:
             if not custom_fields:
                 raise ValueError("custom_fields[telegram] is required when using force_telegram_verification")
             if "telegram" not in [field["type"] for field in custom_fields]:
-                raise ValueError("custom_fields[telegram] is required when using force_email_verification")
+                raise ValueError("custom_fields[telegram] is required when using force_telegram_verification")
+
+        if force_twitter_verification:
+            if not custom_fields:
+                raise ValueError("custom_fields[twitter] is required when using force_twitter_verification")
+            if "twitter" not in [field["type"] for field in custom_fields]:
+                raise ValueError("custom_fields[twitter] is required when using force_twitter_verification")
 
         # Remove None values
         data = {k: v for k, v in data.items() if v is not None}
