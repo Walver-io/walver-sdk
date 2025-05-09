@@ -97,9 +97,12 @@ class Walver:
         """Get all API keys for the authenticated creator. The api keys are trimmed for security"""
         return self._get("/creator/api-keys")
 
-    def delete_api_key(self, api_key: str) -> None:
-        """Delete an API key."""
-        return self._delete(f"/creator/api-keys/{api_key}")
+    def delete_api_key(self, api_key_id: str) -> None:
+        """Delete an API key.
+        Args:
+            api_key_id: The ID of the API key to delete.
+        """
+        return self._delete(f"/creator/api-keys/{api_key_id}")
 
     def create_verification(
         self,

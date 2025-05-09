@@ -67,7 +67,7 @@ api_key = walver.create_api_key(
 api_keys = walver.get_api_keys()
 
 # Delete an API key
-walver.delete_api_key(api_key="key_123")
+walver.delete_api_key(api_key_id="the-api-key-id")
 ```
 
 ### Using the Asynchronous Client
@@ -121,7 +121,7 @@ async def main():
     api_keys = await walver.get_api_keys()
 
     # Delete an API key
-    await walver.delete_api_key(api_key="key_123")
+    await walver.delete_api_key(api_key_id="the-api-key-id")
 
 # Run the async code
 asyncio.run(main())

@@ -9,21 +9,21 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 requirements = [
     "anyio==4.9.0",
-    "certifi==2025.1.31", 
+    "certifi==2025.4.26", 
     "charset-normalizer==3.4.1",
-    "h11==0.14.0",
-    "httpcore==1.0.7",
+    "h11==0.16.0",
+    "httpcore==1.0.9",
     "httpx==0.28.1",
     "idna==3.10",
     "python-dotenv==1.1.0", 
     "requests==2.32.3",
     "sniffio==1.3.1",
-    "urllib3==2.3.0"
+    "urllib3==2.4.0"
 ]
 
 setup(
     name="walver-sdk",
-    version="0.0.7",
+    version="0.0.8",
     author="BonifacioCalindoro",
     author_email="admin@walver.io",
     description="A comprehensive Python wrapper for the Walver API",
