@@ -131,6 +131,7 @@ class AsyncWalver:
         force_email_verification: bool = False,
         force_telegram_verification: bool = False,
         force_twitter_verification: bool = False,
+        force_telephone_verification: bool = False,
     ) -> Dict[str, Any]:
         """Create a new verification link that can be shared with users."""
         if isinstance(expiration, datetime):
@@ -154,7 +155,8 @@ class AsyncWalver:
             "is_nft": is_nft,
             "force_email_verification": force_email_verification,
             "force_telegram_verification": force_telegram_verification,
-            "force_twitter_verification": force_twitter_verification
+            "force_twitter_verification": force_twitter_verification,
+            "force_telephone_verification": force_telephone_verification
         }
 
         if webhook:
@@ -170,7 +172,12 @@ class AsyncWalver:
                 raise ValueError("custom_fields[email] is required when using force_email_verification")
             if "email" not in [field["type"] for field in custom_fields]:
                 raise ValueError("custom_fields[email] is required when using force_email_verification")
-                
+        if force_telephone_verification:
+            if not custom_fields:
+                raise ValueError("custom_fields[telephone] is required when using force_telephone_verification")
+            if "telephone" not in [field["type"] for field in custom_fields]:
+                raise ValueError("custom_fields[telephone] is required when using force_telephone_verification")
+            
         if force_telegram_verification:
             if not custom_fields:
                 raise ValueError("custom_fields[telegram] is required when using force_telegram_verification")
