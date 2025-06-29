@@ -90,6 +90,13 @@ def test_walver_client():
                 placeholder="Enter Telegram Username"
             ),
             CustomField(
+                id="field_1745675995182_284",
+                name="Discord Username",
+                type="discord", 
+                required=True,
+                placeholder="Enter Discord Username"
+            ),
+            CustomField(
                 id="field_1745676011350_282",
                 name="Twitter Handle",
                 type="twitter",
@@ -243,6 +250,7 @@ def test_walver_client():
             force_telephone_verification=True,
             force_telegram_verification=True,
             force_twitter_verification=True,
+            force_discord_verification=True,
             webhook="https://webhook.example.com/social-verify",
             secret="social-secret-456"
         )
