@@ -49,6 +49,7 @@ class Verification(BaseModel):
     force_telegram_verification: bool = False
     force_twitter_verification: bool = False
     force_telephone_verification: bool = False
+    force_discord_verification: bool = False
 
 class VerificationResult(BaseModel):
     id: str
@@ -100,6 +101,7 @@ class CreateVerificationRequest(BaseModel):
     force_telegram_verification: bool = False
     force_twitter_verification: bool = False
     force_telephone_verification: bool = False
+    force_discord_verification: bool = False
     token_gate: bool = False
     token_address: Optional[str] = None
     token_amount: Optional[Union[int, float]] = None

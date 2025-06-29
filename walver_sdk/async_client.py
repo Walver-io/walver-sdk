@@ -210,6 +210,7 @@ class AsyncWalver:
         force_telegram_verification: bool = False,
         force_twitter_verification: bool = False,
         force_telephone_verification: bool = False,
+        force_discord_verification: bool = False,
     ) -> CreateVerificationResponse:
         """Create a new verification link that can be shared with users.
         Args:
@@ -232,6 +233,7 @@ class AsyncWalver:
             force_telegram_verification: Whether the verification is a force telegram verification.
             force_twitter_verification: Whether the verification is a force twitter verification.
             force_telephone_verification: Whether the verification is a force telephone verification.
+            force_discord_verification: Whether the verification is a force discord verification.
         Returns:
             CreateVerificationResponse
         Raises:
@@ -275,7 +277,13 @@ class AsyncWalver:
                 raise ValueError("custom_fields[twitter] is required when using force_twitter_verification")
             if "twitter" not in [field.type for field in custom_fields]:
                 raise ValueError("custom_fields[twitter] is required when using force_twitter_verification")
-            
+
+        if force_discord_verification:
+            if not custom_fields:
+                raise ValueError("custom_fields[discord] is required when using force_discord_verification")
+            if "discord" not in [field.type for field in custom_fields]:
+                raise ValueError("custom_fields[discord] is required when using force_discord_verification")
+        
         data = CreateVerificationRequest(
             id=id,
             service_name=service_name,
@@ -295,7 +303,8 @@ class AsyncWalver:
             force_email_verification=force_email_verification,
             force_telegram_verification=force_telegram_verification,
             force_twitter_verification=force_twitter_verification,
-            force_telephone_verification=force_telephone_verification
+            force_telephone_verification=force_telephone_verification,
+            force_discord_verification=force_discord_verification
         )
 
         # Remove None values
